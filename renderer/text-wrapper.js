@@ -1,12 +1,16 @@
 var smartquotes = require("smartquotes").string;
 
-module.exports = function(theme) {
+module.exports = function(context, options) {
+
+  context.font = options.captionFont;
+  context.textBaseline = "top";
+  context.textAlign = options.captionAlign || "center";
 
   // Do some typechecking
-  var left = ifNumeric(theme.captionLeft, 0),
-      right = ifNumeric(theme.captionRight, theme.width),
-      bottom = ifNumeric(theme.captionBottom, null),
-      top = ifNumeric(theme.captionTop, null);
+  var left = ifNumeric(options.captionLeft, 0),
+      right = ifNumeric(options.captionRight, options.width),
+      bottom = ifNumeric(options.captionBottom, null),
+      top = ifNumeric(options.captionTop, null);
 
   if (bottom === null && top === null) {
     top = 0;
@@ -14,7 +18,7 @@ module.exports = function(theme) {
 
   var captionWidth = right - left;
 
-  return function(context, caption) {
+  return function(caption) {
 
     if (!caption) {
       return;
@@ -23,10 +27,6 @@ module.exports = function(theme) {
     var lines = [[]],
         maxWidth = 0,
         words = smartquotes(caption + "").trim().replace(/\s\s+/g, " \n").split(/ /g);
-
-    context.font = theme.captionFont;
-    context.textBaseline = "top";
-    context.textAlign = theme.captionAlign || "center";
 
     // Check whether each word exceeds the width limit
     // Wrap onto next line as needed
@@ -50,10 +50,10 @@ module.exports = function(theme) {
 
     });
 
-    var totalHeight = lines.length * theme.captionLineHeight + (lines.length - 1) * theme.captionLineSpacing;
+    var totalHeight = lines.length * options.captionLineHeight + (lines.length - 1) * options.captionLineSpacing;
 
     // horizontal alignment
-    var x = theme.captionAlign === "left" ? left : theme.captionAlign === "right" ? right : (left + right) / 2;
+    var x = options.captionAlign === "left" ? left : options.captionAlign === "right" ? right : (left + right) / 2;
 
     // Vertical alignment
     var y;
@@ -69,9 +69,9 @@ module.exports = function(theme) {
       y = top;
     }
 
-    context.fillStyle = theme.captionColor;
+    context.fillStyle = options.captionColor;
     lines.forEach(function(line, i){
-      context.fillText(line.join(" "), x, y + i * (theme.captionLineHeight + theme.captionLineSpacing));
+      context.fillText(line.join(" "), x, y + i * (options.captionLineHeight + options.captionLineSpacing));
     });
 
  };
