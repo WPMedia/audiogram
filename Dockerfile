@@ -39,4 +39,4 @@ RUN npm cache clean
 # Install dependencies
 RUN npm install
 
-CMD ["npm", "run", "all"]
+CMD ["npm", "start"]
