@@ -34,10 +34,11 @@ function initializeCanvas(theme, cb) {
           bgTopper.src = raw;
           renderer.backgroundImageTopper = bgTopper;
 
+          return cb(null, renderer);
         });
+    } else {
+      return cb(null, renderer);
     }
-
-    return cb(null, renderer);
 
   });
 

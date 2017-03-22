@@ -6,6 +6,9 @@ var d3 = require("d3"),
     getRenderer = require("../renderer/"),
     getWaveform = require("./waveform.js");
 
+var can = document.querySelector('canvas');
+  can.style.letterSpacing = '.5px';
+
 var context = d3.select("canvas").node().getContext("2d");
 
 var theme,
