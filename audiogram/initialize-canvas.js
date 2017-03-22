@@ -22,6 +22,20 @@ function initializeCanvas(theme, cb) {
     var bg = new Canvas.Image;
     bg.src = raw;
     renderer.backgroundImage(bg);
+    
+    if (options.backgroundImageTopper) {
+      fs.readFile(path.join(__dirname, "..", "settings", "backgrounds", options.backgroundImageTopper), function(err, raw){
+
+          if (err) {
+            return cb(err);
+          }
+
+          var bgTopper = new Canvas.Image;
+          bgTopper.src = raw;
+          renderer.backgroundImageTopper = bgTopper;
+
+        });
+    }
 
     return cb(null, renderer);
 

@@ -29,6 +29,10 @@ function _selection(_) {
   return arguments.length ? (selection = _) : selection;
 }
 
+function _subtitle(_){
+  return arguments.length ? (subtitle = _) : subtitle;
+}
+
 minimap.onBrush(function(extent){
 
   var duration = audio.duration();
@@ -77,6 +81,7 @@ function redraw() {
   var renderer = getRenderer(theme);
 
   renderer.backgroundImage(theme.backgroundImageFile || null);
+  renderer.backgroundImageTopper = theme.backgroundImageTopperFile || null;
 
   renderer.drawFrame(context, {
     caption: caption,
@@ -108,6 +113,7 @@ function loadAudio(f, cb) {
 
 module.exports = {
   caption: _caption,
+  subtitle: _subtitle,
   theme: _theme,
   file: _file,
   selection: _selection,

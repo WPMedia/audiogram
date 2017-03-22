@@ -52,6 +52,10 @@ module.exports = function(t) {
     }
 
     patterns[theme.pattern || "wave"](context, options.waveform, theme);
+    
+    if (this.backgroundImageTopper){
+      context.drawImage(this.backgroundImageTopper, 0, 0, this.options.width, this.options.height);
+    }
 
     // Write the caption
     if (options.caption) {
