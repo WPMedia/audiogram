@@ -6,6 +6,9 @@ var d3 = require("d3"),
     getRenderer = require("../renderer/"),
     getWaveform = require("./waveform.js");
 
+var can = document.querySelector('canvas');
+  can.style.letterSpacing = '.5px';
+
 var context = d3.select("canvas").node().getContext("2d");
 
 var theme,
@@ -27,6 +30,10 @@ function _caption(_) {
 
 function _selection(_) {
   return arguments.length ? (selection = _) : selection;
+}
+
+function _subtitle(_){
+  return arguments.length ? (subtitle = _) : subtitle;
 }
 
 minimap.onBrush(function(extent){
@@ -77,6 +84,7 @@ function redraw() {
   var renderer = getRenderer(theme);
 
   renderer.backgroundImage(theme.backgroundImageFile || null);
+  renderer.backgroundImageTopper = theme.backgroundImageTopperFile || null;
 
   renderer.drawFrame(context, {
     caption: caption,
@@ -108,6 +116,7 @@ function loadAudio(f, cb) {
 
 module.exports = {
   caption: _caption,
+  subtitle: _subtitle,
   theme: _theme,
   file: _file,
   selection: _selection,
