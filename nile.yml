@@ -14,6 +14,9 @@ environments:
     override:
       services:
         app:
+          image: quay.io/washpost/audiogram:{{ .Version }}
+          ports:
+            - "0:8000"
           mem_reservation: 1g
           mem_limit: 2g
           log_driver: awslogs
@@ -40,6 +43,9 @@ environments:
     override:
       services:
         app:
+          image: quay.io/washpost/audiogram:{{ .Version }}
+          ports:
+            - "0:8000"
           mem_reservation: 1g
           mem_limit: 2g
           log_driver: awslogs
