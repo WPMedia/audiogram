@@ -6,7 +6,7 @@ require("../lib/settings/");
 var logger = require("../lib/logger/"),
     server = require("../server/");
 
-var port = +process.argv[2] || 8888;
+var port = +process.argv[2] || 8000;
 
 server.listen(port);
 logger.log("Listening on " + port);
