@@ -33,6 +33,7 @@ module.exports = function(req, res) {
         if (key in hash) {
           hash[key] = +hash[key];
         }
+        console.log(hash[key]);
       });
 
       res.json(hash);

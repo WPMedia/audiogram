@@ -16,7 +16,7 @@ environments:
         app:
           image: quay.io/washpost/audiogram:{{ .Version }}
           ports:
-            - "0:8000"
+            - "0:8888"
           mem_reservation: 1g
           mem_limit: 2g
           log_driver: awslogs
@@ -45,7 +45,7 @@ environments:
         app:
           image: quay.io/washpost/audiogram:{{ .Version }}
           ports:
-            - "0:8000"
+            - "0:8888"
           mem_reservation: 1g
           mem_limit: 2g
           log_driver: awslogs

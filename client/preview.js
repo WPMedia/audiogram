@@ -84,7 +84,7 @@ function redraw() {
   var renderer = getRenderer(theme);
 
   renderer.backgroundImage(theme.backgroundImageFile || null);
-  renderer.backgroundImageTopper = theme.backgroundImageTopperFile || null;
+  renderer.backgroundImageTopper(theme.backgroundImageTopperFile || null);
 
   renderer.drawFrame(context, {
     caption: caption,

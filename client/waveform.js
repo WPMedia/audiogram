@@ -6,6 +6,7 @@ var width = 640;
 function decoded(cb) {
 
   return function(decodedData) {
+    console.log('decodedData', decodedData);
 
     var duration = decodedData.duration;
 
@@ -46,6 +47,7 @@ module.exports = function(file, cb) {
   fileReader.onerror = cb;
 
   fileReader.onload = function(){
+    console.log('filereader onload result', this.result);
 
     ctx.decodeAudioData(this.result, decoded(close), function(err){ close(err || "Error decoding audio."); });
 

@@ -6,12 +6,19 @@ module.exports = function(t) {
 
   var renderer = {},
       backgroundImage,
+      backgroundImageTopper,
       wrapText,
       theme;
 
   renderer.backgroundImage = function(_) {
     if (!arguments.length) return backgroundImage;
     backgroundImage = _;
+    return this;
+  };
+  
+  renderer.backgroundImageTopper = function(_) {
+    if (!arguments.length) return backgroundImageTopper;
+    backgroundImageTopper = _;
     return this;
   };
 
@@ -53,8 +60,8 @@ module.exports = function(t) {
 
     patterns[theme.pattern || "wave"](context, options.waveform, theme);
     
-    if (this.backgroundImageTopper){
-      context.drawImage(this.backgroundImageTopper, 0, 0, this.options.width, this.options.height);
+    if (backgroundImageTopper){
+      context.drawImage(backgroundImageTopper, 0, 0, theme.width, theme.height);
     }
 
     // Write the caption

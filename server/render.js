@@ -35,15 +35,17 @@ function validate(req, res, next) {
 }
 
 function route(req, res) {
+  console.log('route starting');
 
   var id = req.file.destination.split(path.sep).pop();
 
   transports.uploadAudio(path.join(req.file.destination, "audio"), "audio/" + id,function(err) {
+    console.log('starting upload of audio');
 
     if (err) {
       throw err;
     }
-
+    console.log('timestamp it');
     // Queue up the job with a timestamp
     transports.addJob(_.extend({ id: id, created: (new Date()).getTime() }, req.body));
 

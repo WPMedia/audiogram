@@ -146,33 +146,42 @@ Audiogram.prototype.render = function(cb) {
       q = queue(1);
 
   this.status("audio-download");
-
+  
+  console.log('Set up tmp directory');
   // Set up tmp directory
   q.defer(mkdirp, this.frameDir);
 
+  console.log('Download the stored audio file');
   // Download the stored audio file
   q.defer(transports.downloadAudio, "audio/" + this.id, this.audioPath);
 
+  console.log('If the audio needs to be clipped, clip it first and update the path');
   // If the audio needs to be clipped, clip it first and update the path
   if (this.settings.start || this.settings.end) {
     q.defer(this.trimAudio.bind(this), this.settings.start || 0, this.settings.end || null);
   }
 
+  console.log('Get the audio waveform data');
   // Get the audio waveform data
   q.defer(this.getWaveform.bind(this));
 
+  console.log('Draw all the frames');
   // Draw all the frames
   q.defer(this.drawFrames.bind(this));
 
+  console.log('Combine audio and frames together with ffmpeg');
   // Combine audio and frames together with ffmpeg
   q.defer(this.combineFrames.bind(this));
 
+  console.log('Upload video to S3 or move to local storage');
   // Upload video to S3 or move to local storage
   q.defer(transports.uploadVideo, this.videoPath, "video/" + this.id + ".mp4");
 
+  console.log('Delete working directory');
   // Delete working directory
   q.defer(rimraf, this.dir);
 
+  console.log('Final callback, results in a URL where the finished video is accessible');
   // Final callback, results in a URL where the finished video is accessible
   q.await(function(err){
 
