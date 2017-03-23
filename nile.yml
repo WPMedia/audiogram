@@ -30,7 +30,7 @@ environments:
         desiredCount: 1
         loadBalancers:
           - containerName: app
-            containerPort: 8000
+            containerPort: 8888
   - name: prod
     resources:
       - vendor: aws
@@ -59,4 +59,4 @@ environments:
         desiredCount: 3
         loadBalancers:
           - containerName: app
-            containerPort: 8000
+            containerPort: 8888
