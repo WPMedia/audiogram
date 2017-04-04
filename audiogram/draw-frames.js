@@ -21,7 +21,7 @@ function drawFrames(renderer, options, cb) {
   function drawFrame(frameNumber, frameCallback) {
 
     var canvas = canvases.pop(),
-        canvas.style.letterSpacing = '1px';
+        // canvas.style.letterSpacing = '1px',
         context = canvas.getContext("2d");
 
     renderer.drawFrame(context, {

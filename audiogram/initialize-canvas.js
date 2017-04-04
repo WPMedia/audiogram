@@ -23,8 +23,8 @@ function initializeCanvas(theme, cb) {
     bg.src = raw;
     renderer.backgroundImage(bg);
     
-    if (options.backgroundImageTopper) {
-      fs.readFile(path.join(__dirname, "..", "settings", "backgrounds", options.backgroundImageTopper), function(err, raw){
+    if (theme.backgroundImageTopper) {
+      fs.readFile(path.join(__dirname, "..", "settings", "backgrounds", theme.backgroundImageTopper), function(err, raw){
 
           if (err) {
             return cb(err);
