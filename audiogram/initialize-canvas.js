@@ -22,7 +22,7 @@ function initializeCanvas(theme, cb) {
     var bg = new Canvas.Image;
     bg.src = raw;
     renderer.backgroundImage(bg);
-    
+
     if (theme.backgroundImageTopper) {
       fs.readFile(path.join(__dirname, "..", "settings", "backgrounds", theme.backgroundImageTopper), function(err, raw){
 
@@ -32,7 +32,7 @@ function initializeCanvas(theme, cb) {
 
           var bgTopper = new Canvas.Image;
           bgTopper.src = raw;
-          renderer.backgroundImageTopper = bgTopper;
+          renderer.backgroundImageTopper(bgTopper);
 
           return cb(null, renderer);
         });
