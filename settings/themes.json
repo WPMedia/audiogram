@@ -18,6 +18,9 @@
     "captionLineSpacing": 15,
     "foregroundColor": "#fff"
   },
+  "Generic":{
+    "backgroundImage": "deafult-background.png"
+  },
   "Cape Up": {
     "backgroundImage": "cape-up-background.png",
     "backgroundImageTopper": "cape-up-jonathan.png"
