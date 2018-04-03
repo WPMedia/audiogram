@@ -10,7 +10,7 @@ environments:
           scheme: internal
           domain: audiogram-staging.wpit.nile.works
           parent_domain: wpit.nile.works
-          certificate: arn:aws:iam::766513428554:server-certificate/star.wpit.nile.works_4-3-2018
+          certificate: arn:aws:acm:us-east-1:766513428554:certificate/0d117002-188c-4264-9b04-e47dfd0f2fe6
     override:
       services:
         app:
@@ -39,7 +39,7 @@ environments:
           scheme: internal
           domain: audiogram.wpit.nile.works
           parent_domain: wpit.nile.works
-          certificate: arn:aws:iam::766513428554:server-certificate/star.wpit.nile.works_4-3-2018
+          certificate: arn:aws:acm:us-east-1:766513428554:certificate/0d117002-188c-4264-9b04-e47dfd0f2fe6
     override:
       services:
         app:
