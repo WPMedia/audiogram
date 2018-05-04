@@ -12,6 +12,6 @@ WORKDIR /home/audiogram/audiogram
 # Install dependencies
 RUN npm install
 
-EXPOSE 8888
+EXPOSE 8000
 
 CMD ["npm", "start"]
