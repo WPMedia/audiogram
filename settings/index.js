@@ -20,7 +20,7 @@ var path = require("path");
 
 module.exports = {
   s3Bucket: 'wp-stat',
-  redisHost: 'redis',
+  redisHost:  'redis',
   worker: true,
   workingDirectory: path.join(__dirname, "..", "tmp"),
   storagePath: 'audiograms',
