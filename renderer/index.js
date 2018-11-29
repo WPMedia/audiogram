@@ -15,7 +15,7 @@ module.exports = function(t) {
     backgroundImage = _;
     return this;
   };
-  
+
   renderer.backgroundImageTopper = function(_) {
     if (!arguments.length) return backgroundImageTopper;
     backgroundImageTopper = _;
@@ -59,10 +59,11 @@ module.exports = function(t) {
     }
 
     patterns[theme.pattern || "wave"](context, options.waveform, theme);
-    
+
     if (backgroundImageTopper){
       context.drawImage(backgroundImageTopper, 0, 0, theme.width, theme.height);
     }
+
 
     // Write the caption
     if (options.caption) {
