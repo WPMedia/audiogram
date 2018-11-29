@@ -29,17 +29,14 @@
     "backgroundImage": "can-he-do-that-background.png",
     "backgroundImageTopper": "can-he-do-that-portrait.png"
   },
-  "Post reports (no caption)": {
-    "backgroundImage": "PR_AudioGram.png",
+  "Post reports": {
+    "backgroundImage": "PR_NEW_AudioGram_Blank.png",
+    "backgroundImageTopper": "PR_NEW_AudioGram_BlankNBG.png",
     "pattern": "bars",
-    "waveTop": 420,
-    "waveBottom": 600
-  },
-  "Post reports (with caption)": {
-    "backgroundImage": "PR_AudioGram.png",
-    "pattern": "bars",
-    "captionTop": 440,
-    "waveTop": 550,
-    "waveBottom": 700
+    "waveTop": 200,
+    "waveBottom": 315,
+    "waveLeft": 0,
+    "waveRight": 1200,
+    "captionTop": 420
   }
 }
