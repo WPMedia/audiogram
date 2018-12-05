@@ -17,8 +17,8 @@ environments:
           image: quay.io/washpost/audiogram:{{ .Version }}
           ports:
             - "0:8000"
-          mem_reservation: 2g
-          mem_limit: 4g
+          mem_reservation: 1g
+          mem_limit: 2g
           log_driver: awslogs
           log_opt:
             awslogs-group: /nile/siteeng-lincoln/audiogram/staging
@@ -46,8 +46,8 @@ environments:
           image: quay.io/washpost/audiogram:{{ .Version }}
           ports:
             - "0:8000"
-          mem_reservation: 2g
-          mem_limit: 4g
+          mem_reservation: 1g
+          mem_limit: 2g
           log_driver: awslogs
           log_opt:
             awslogs-group: /nile/siteeng-lincoln/audiogram/prod
@@ -56,7 +56,7 @@ environments:
       - deploymentConfiguration:
           maximumPercent: 200
           minimumHealthyPercent: 50
-        desiredCount: 2
+        desiredCount: 3
         loadBalancers:
           - containerName: app
             containerPort: 8000
